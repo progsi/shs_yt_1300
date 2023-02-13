@@ -1,5 +1,5 @@
 # shs_yt_1300
-This is the repository for the SHS-YouTube1300 dataset. A dataset of cover versions from YouTube.
+This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
 Resources and models we relied upon dataset creation:
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
@@ -7,7 +7,7 @@ Resources and models we relied upon dataset creation:
 - *You-Only-Hear-Once* (*YOHO*) for Music Ratio estimation https://github.com/satvik-venkatesh/you-only-hear-once/
 - *Ditto* for entity matching https://github.com/megagonlabs/ditto, our fork: https://github.com/progsi/ditto
 
-To get our full dataset including labels, similarity scores by Re-MOVE and Ditto, music ratios, run:
+To get our full dataset including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios, run:
 
 
 ```
@@ -18,14 +18,14 @@ transformations.get_dataset()
 ```
 
 This returns a pandas dataframe including the following columns:
-- `set_id`: set_id from SHS100K corresponding to a work (not the Secondhandsongs ID)
-- `reference_yt_id`: YouTube identifier of the reference used as representation of work for the annotator
-- `candidate_yt_id`: YouTube identifier of the crawled video which is annotated in relation to the reference
-- `sample_group`: uncertainty sampling group (only filled for MTurk and expert data). One of the following: `re-move_favs`, `ditto_favs`, `mutual_unconfident` ("Re-MOVE favored", "Ditto favored" and "mutual unconfident") as described in the paper.
+- `set_id`: set_id from *SHS100K* corresponding to a work (not the *Secondhandsongs* ID)
+- `reference_yt_id`: *YouTube* identifier of the reference used as representation of work for the annotator
+- `candidate_yt_id`: *YouTube* identifier of the crawled video which is annotated in relation to the reference
+- `sample_group`: uncertainty sampling group (only filled for *MTurk* and expert data). One of the following: `re-move_favs`, `ditto_favs`, `mutual_unconfident` ("Re-MOVE favored", "Ditto favored" and "mutual unconfident") as described in the paper.
 - `label`: the final class label `["Match", "Version", "Other", "No Music"]`
 - `ǹlabel`: the numerical final class label (relevance score) `[3, 2, 1, 0]`
 - `origin`: origin of annotation. This is either `worker`, `expert` or `staff`
-- `seed`: boolean indicating whether the YouTube identifier is in the SHS100K seed dataset
+- `seed`: boolean indicating whether the *YouTube* identifier is in the SHS100K seed dataset
 - `ditto_pred`: aggregated *Ditto* based similarity between `reference_yt_id` and `candidate_yt_id`
 - `re-move_pred`: aggregated *Re-MOVE* based cosine similarity between `reference_yt_id` and `candidate_yt_id`
 - `music_ratio`: music ratio estimated by *YOHO*
@@ -34,17 +34,17 @@ This returns a pandas dataframe including the following columns:
 
 HDF structure of `store_public.h5`:
 - `metadata`
-  - `metadata/shs100k`: the metadata from SHS100K
+  - `metadata/shs100k`: the metadata from *SHS100K*
   - `metadata/version_cues`: version cues (eg. "remix", "cover") extracted from literature
-  - `metadata/yt_title_cues`: YouTube identifiers (index) mapping to cue occurance in video title
-  - `metadata/yt_descr_cues`: YouTube identifiers (index) mapping to cue occurance in video description
-- `annotations`: set_ids from SHS100K and YouTube identifiers mapping to...
-  - `annotations/mturk`:  ...MTurk annotations by multiple workers
+  - `metadata/yt_title_cues`: *YouTube* identifiers (index) mapping to cue occurance in video title
+  - `metadata/yt_descr_cues`: *YouTube* identifiers (index) mapping to cue occurance in video description
+- `annotations`: set_ids from *SHS100K* and *YouTube* identifiers mapping to...
+  - `annotations/mturk`:  ...*MTurk* annotations by multiple workers based on majority vote (minimum three judgements)
   - `annotations/expert`: ...expert annotations and comments
   - `annotations/staff`: ...staff annotations
-  - `annotations/similarities`: ...aggregated similarity scores computed by Ditto and Re-MOVE
-  - `annotations/yoho_music_ratio`: ...music ratios extracted based on You-Only-Hear-Ones (YOHO)
+  - `annotations/similarities`: ...aggregated similarity scores computed by *Ditto* and *Re-MOVE*
+  - `annotations/yoho_music_ratio`: ...music ratios extracted based on *YOHO*
 - `crawl`: 
-  - `crawl/queries`: set_ids mapping to all our queries to YouTube
-  - `crawl/SET_ID/re-move_preds`: N X N matrix of cosine similarities by Re-MOVE of N videos for set with `SET_ID`.
+  - `crawl/queries`: set_ids mapping to all our queries to *YouTube*
+  - `crawl/SET_ID/re-move_preds`: N X N matrix of cosine similarities by *Re-MOVE* of N videos for set with `SET_ID`.
   - `crawl/SET_ID/videos`: N x M matrix of all N videos for set with `SET_ID` mapping to the query rank if occurring in each of M queries.
