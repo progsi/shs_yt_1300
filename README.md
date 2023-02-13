@@ -1,4 +1,4 @@
-# shs_yt_1300
+# SHS-YouTube1300
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
 # Ressources
