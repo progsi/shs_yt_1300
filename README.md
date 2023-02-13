@@ -18,7 +18,7 @@ import transformations
 transformations.get_dataset()
 ```
 
-This returns a pandas dataframe including the following columns:
+This returns a *Pandas* dataframe including the following columns:
 - `set_id`: set_id from *SHS100K* corresponding to a work (not the *Secondhandsongs* ID)
 - `reference_yt_id`: *YouTube* identifier of the reference used as representation of work for the annotator
 - `candidate_yt_id`: *YouTube* identifier of the crawled video which is annotated in relation to the reference
