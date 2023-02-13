@@ -1,6 +1,8 @@
 # SHS-YouTube1300
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
+[![DOI](https://zenodo.org/badge/601052917.svg)](https://zenodo.org/badge/latestdoi/601052917)
+
 # Ressources
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
 - *Re-MOVE* for cover song identification https://github.com/furkanyesiler/re-move, our fork: https://github.com/progsi/re-move  
