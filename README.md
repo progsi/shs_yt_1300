@@ -1,14 +1,15 @@
 # shs_yt_1300
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
-Resources and models we relied upon dataset creation:
+# Ressources
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
 - *Re-MOVE* for cover song identification https://github.com/furkanyesiler/re-move, our fork: https://github.com/progsi/re-move  
 - *You-Only-Hear-Once* (*YOHO*) for Music Ratio estimation https://github.com/satvik-venkatesh/you-only-hear-once/
 - *Ditto* for entity matching https://github.com/megagonlabs/ditto, our fork: https://github.com/progsi/ditto
 
+# Getting our dataset (metadata)
+Since we are not allowed to share the *YouTube* metadata publicly, please contact us in case you are interested. 
 To get our full dataset including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios, run:
-
 
 ```
 import pandas as pd
@@ -32,6 +33,7 @@ This returns a pandas dataframe including the following columns:
 - `ǹon_music_ratio`: ratio of non-musical content
 - `overlap_ratio`: the overlap between `music_ratio` and `overlap_ratio` 
 
+# HDF Store Structure
 HDF structure of `store_public.h5`:
 - `metadata`
   - `metadata/shs100k`: the metadata from *SHS100K*
