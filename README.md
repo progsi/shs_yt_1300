@@ -1,7 +1,9 @@
 # SHS-YouTube1300
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
-# Ressources
+[![DOI](https://zenodo.org/badge/601052917.svg)](https://zenodo.org/badge/latestdoi/601052917)
+
+# Ressources that we used
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
 - *Re-MOVE* for cover song identification https://github.com/furkanyesiler/re-move, our fork: https://github.com/progsi/re-move  
 - *You-Only-Hear-Once* (*YOHO*) for audio segmentation and subsequent estimation of ratio of music https://github.com/satvik-venkatesh/you-only-hear-once/
