@@ -9,7 +9,7 @@ def get_dataset():
             how='inner', left_on=['set_id', 'candidate_yt_id'],
             right_on=['set_id', 'yt_id']),
         pd.read_hdf('data/store_public.h5', 'annotations/yoho_musicratio'), how='left', on='yt_id'
-    )
+    ).drop('yt_id', axis=1)
 
 
 def get_mturk_pivot(value_col='label_worker'):
@@ -33,8 +33,17 @@ def get_mturk_pivot(value_col='label_worker'):
     return df.iloc[:,:5]
 
 
-def get_annotations_mturk_mv():
+def get_annotations_expert():
+    return pd.read_hdf('data/store_public.h5', 'annotations/expert')
+
+
+def get_annotations_mturk_mv(tertiary=False):
+
     df = get_mturk_pivot()
+
+    if tertiary:
+        # reduce classes to three
+        df = df.replace('Match', 'Version')
 
     def get_mode(row):
         mode = row.mode().iloc[0]
