@@ -9,9 +9,20 @@ This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover ver
 - *You-Only-Hear-Once* (*YOHO*) for audio segmentation and subsequent estimation of ratio of music https://github.com/satvik-venkatesh/you-only-hear-once/
 - *Ditto* for entity matching https://github.com/megagonlabs/ditto, our fork: https://github.com/progsi/ditto
 
+# Environment (Pandas, Pytables etc.)
+
+```
+conda env create -f environment.yml
+```
+
 # Getting our dataset (metadata)
 Since we are not allowed to share the *YouTube* metadata publicly, please contact us in case you are interested. 
-To get our full dataset including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios, run:
+To get our full dataset metadata including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios as a CSV run:
+
+```
+python transformations.py
+```
+or you can load the Dataframe using our provided Script (for instance when using a Jupyter Environment)
 
 ```
 import pandas as pd
