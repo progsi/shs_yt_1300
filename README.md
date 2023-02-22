@@ -22,6 +22,7 @@ To get our full dataset metadata including labels, similarity scores by *Re-MOVE
 ```
 python transformations.py
 ```
+This writes a CSV file named `shs1300.csv` with semicolon separators into the `data` subdirectory.
 or you can load the Dataframe using our provided Script (for instance when using a Jupyter Environment)
 
 ```
