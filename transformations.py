@@ -121,3 +121,4 @@ def get_annotations(lean=True, tertiary=False):
 
 if __name__ == "__main__":
     get_dataset().to_csv('data/shs1300.csv', index=None, sep=';')
+
