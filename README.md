@@ -1,4 +1,5 @@
 # SHS-YouTube1300
+
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
 [![DOI](https://zenodo.org/badge/601052917.svg)](https://zenodo.org/badge/latestdoi/601052917)
@@ -15,15 +16,26 @@ This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover ver
 conda env create -f environment.yml
 ```
 
-# Getting our dataset (metadata)
-Since we are not allowed to share the *YouTube* metadata publicly, please contact us in case you are interested. 
-To get our full dataset metadata including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios as a CSV run:
+# Getting our dataset 
 
+## Getting the audio features (CREMA-PCP and CQT Spectograms)
+
+TBA
+
+## Getting the metadata
+
+Since we are not allowed to share the *YouTube* metadata publicly, please contact us in case you are interested. 
+
+To get our full dataset metadata including labels, similarity scores by *Re-MOVE* and *Ditto*, music ratios there are two options:
+
+### Option 1: Writing CSV 
+
+Run the following to generate a CSV file named `shs1300.csv` with semicolon separators into the `data` subdirectory.
 ```
 python transformations.py
 ```
-This writes a CSV file named `shs1300.csv` with semicolon separators into the `data` subdirectory.
-or you can load the Dataframe using our provided Script (for instance when using a Jupyter Environment)
+
+### Option 2: Load Dataframe in Python
 
 ```
 import pandas as pd
@@ -32,6 +44,7 @@ import transformations
 transformations.get_dataset()
 ```
 
+# Dataset Attributes
 This returns a *Pandas* dataframe including the following columns:
 - `set_id`: set_id from *SHS100K* corresponding to a work (not the *Secondhandsongs* ID)
 - `reference_yt_id`: *YouTube* identifier of the reference used as representation of work for the annotator
@@ -47,7 +60,7 @@ This returns a *Pandas* dataframe including the following columns:
 - `ǹon_music_ratio`: ratio of non-musical content
 - `overlap_ratio`: the overlap between `music_ratio` and `overlap_ratio` 
 
-# HDF Store Structure
+# HDF Store Structure (further data)
 HDF structure of `store_public.h5`:
 - `metadata`
   - `metadata/shs100k`: the metadata from *SHS100K*
@@ -64,3 +77,4 @@ HDF structure of `store_public.h5`:
   - `crawl/queries`: set_ids mapping to all our queries to *YouTube*
   - `crawl/SET_ID/re-move_preds`: N X N matrix of cosine similarities by *Re-MOVE* of N videos for set with `SET_ID`.
   - `crawl/SET_ID/videos`: N x M matrix of all N videos for set with `SET_ID` mapping to the query rank if occurring in each of M queries.
+  
