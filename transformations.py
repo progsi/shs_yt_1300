@@ -1,10 +1,10 @@
 import pandas as pd
 
 
-def get_dataset():
+def get_dataset(tertiary=False):
     return pd.merge(
         pd.merge(
-            get_annotations().reset_index().drop('ver_id', axis=1),
+            get_annotations(tertiary=tertiary).reset_index().drop('ver_id', axis=1),
             pd.read_hdf('data/store_public.h5', 'annotations/similarities').reset_index().drop('ver_id', axis=1),
             how='inner', left_on=['set_id', 'candidate_yt_id'],
             right_on=['set_id', 'yt_id']),
@@ -77,10 +77,10 @@ def get_annotations_staff():
     return df[["label_staff", "nlabel_staff"]]
 
 
-def get_annotations(lean=True):
+def get_annotations(lean=True, tertiary=False):
     df = get_annotations_staff().join(
         get_annotations_mturk_mean().join(
-            get_annotations_mturk_mv()).join(
+            get_annotations_mturk_mv(tertiary=tertiary)).join(
                 pd.read_hdf('data/store_public.h5', 'annotations/expert')
         ), how="outer"
     )
@@ -94,6 +94,9 @@ def get_annotations(lean=True):
             return x.label_worker_mv, 'worker'
 
     df["label"], df["origin"] = zip(*df.apply(get_class_label, axis=1))
+
+    if tertiary:
+        df["label"] = df["label"].str.replace('Match', 'Version')
 
     def get_nlabel(x):
         if x == 'Match':
@@ -114,3 +117,7 @@ def get_annotations(lean=True):
     else:
         return df[["label", "nlabel", "origin", "nlabel_staff", "label_worker_mean", "nlabel_expert",
                    "comment_expert", "category_expert"]]
+
+
+if __name__ == "__main__":
+    get_dataset().to_csv('data/shs1300.csv', index=None, sep=';')
