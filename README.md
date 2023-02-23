@@ -22,7 +22,14 @@ conda env create -f env.yml
 
 ## Getting the audio features (CREMA-PCP and CQT Spectograms)
 
-TBA
+Get the CREMA-PCP features here:
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7670983.svg)](https://doi.org/10.5281/zenodo.7670983)
+
+
+### HDF Store structe:
+`audiofeatures/YT_ID/crema`: accesses the dataset CREMA-PCP feature of the respective `YT_ID` for instance `gORyrU1xQpg` for the video: https://www.youtube.com/watch?v=gORyrU1xQpg
 
 ## Getting the metadata
 
