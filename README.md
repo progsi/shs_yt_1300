@@ -13,7 +13,7 @@ This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover ver
 # Environment (Pandas, Pytables etc.)
 
 ```
-conda env create -f environment.yml
+conda env create -f env.yml
 ```
 
 # Getting our dataset 
