@@ -2,7 +2,9 @@
 
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
-[![DOI](https://zenodo.org/badge/601052917.svg)](https://zenodo.org/badge/latestdoi/601052917)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7671125.svg)](https://doi.org/10.5281/zenodo.7671125)
+
 
 # Ressources that we used
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
