@@ -63,7 +63,7 @@ This returns a *Pandas* dataframe including the following columns:
 - `candidate_yt_id`: *YouTube* identifier of the crawled video which is annotated in relation to the reference
 - `sample_group`: uncertainty sampling group (only filled for *MTurk* and expert data). One of the following: `re-move_favs`, `ditto_favs`, `mutual_unconfident` ("Re-MOVE favored", "Ditto favored" and "mutual unconfident") as described in the paper.
 - `label`: the final class label `["Match", "Version", "Other", "No Music"]`
-- `ǹlabel`: the numerical final class label (relevance score) `[3, 2, 1, 0]`
+- `nlabel`: the numerical final class label (relevance score) `[3, 2, 1, 0]`
 - `origin`: origin of annotation. This is either `worker`, `expert` or `staff`
 - `seed`: boolean indicating whether the *YouTube* identifier is in the SHS100K seed dataset
 - `ditto_pred`: aggregated *Ditto* based similarity between multiple references representing the work and `candidate_yt_id`
