@@ -22,12 +22,12 @@ conda env create -f env.yml
 
 ## Getting the audio features (CREMA-PCP and CQT Spectograms)
 
-Get the CREMA-PCP features here:
+Get the CREMA-PCP features for the full crawl of 97k videos:
 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7670983.svg)](https://doi.org/10.5281/zenodo.7670983)
 
-Get the CQT Spectograms here:
+Get the CQT Spectograms for our dataset and the SHS100K videos (2600 videos in total):
 
 TBA
 
