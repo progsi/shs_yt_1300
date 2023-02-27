@@ -101,4 +101,4 @@ HDF structure of `store_public.h5`:
   
 # Analysis Example
 
-Please chech `exploration.ipynb` for some examples on data analysis (annotation quality, dataset insights).
+Please check `exploration.ipynb` for some examples on data analysis (annotation quality, dataset insights).
