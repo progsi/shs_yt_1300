@@ -74,7 +74,7 @@ This returns a *Pandas* dataframe including the following columns:
 - `re-move_pred`: aggregated *Re-MOVE* based cosine similarity between multiple references representing the work and `reference_yt_id` and `candidate_yt_id`
 - `music_ratio`: music ratio estimated by *YOHO*
 - `non_music_ratio`: ratio of non-musical content
-- `overlap_ratio`: the overlap between `music_ratio` and `overlap_ratio` 
+- `overlap_ratio`: the overlap between `music_ratio` and `non_music_ratio` 
 
 # HDF Store Structure (further data)
 HDF structure of `store_public.h5`:
