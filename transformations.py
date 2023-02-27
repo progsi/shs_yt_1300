@@ -2,6 +2,11 @@ import pandas as pd
 
 
 def get_dataset(tertiary=False):
+    """
+    loads the SHS-YouTube-1300 dataset as a pandas dataframe
+    :param tertiary: whether to aggregate to tertiary labels (interpreting label "Match" as "Version")
+    :return: dataframe of dataset
+    """
     return pd.merge(
         pd.merge(
             get_annotations(tertiary=tertiary).reset_index().drop('ver_id', axis=1),
@@ -13,6 +18,12 @@ def get_dataset(tertiary=False):
 
 
 def get_mturk_pivot(value_col='label_worker'):
+    """
+    pivots the mturk data, each task (MTurk HIT) mapping to multiple assignments
+    :param value_col: label to consider for showing (either "label_worker" for string label in ["Match", "Version",
+    "Other", "No Music"] or "nlabel_worker" for numerical relevance score in [0, 1, 2, 3]
+    :return: pivoted dataframe in dimension N*M for N tasks and M maximal worker assignments
+    """
     df = pd.read_hdf('data/store_public.h5', 'annotations/mturk').reset_index()
 
     def attach_assignment_counter_column(df: pd.DataFrame):
@@ -30,14 +41,23 @@ def get_mturk_pivot(value_col='label_worker'):
 
     df.columns = ["worker_ind" + str(col) for col in df.columns]
 
-    return df.iloc[:,:5]
+    return df.iloc[:, :5] # limiting to five, because one HIT has to many assignments (bug)
 
 
 def get_annotations_expert():
+    """
+    loading expert annotations
+    :return: expert annotation dataframe
+    """
     return pd.read_hdf('data/store_public.h5', 'annotations/expert')
 
 
 def get_annotations_mturk_mv(tertiary=False):
+    """
+    get the respective MTurk annotations as a dataframe (aggregated pivot)
+    :param tertiary: whether to aggregate to tertiary labels (interpreting label "Match" as "Version")
+    :return: MTurk annotation dataframe
+    """
 
     df = get_mturk_pivot()
 
@@ -55,6 +75,10 @@ def get_annotations_mturk_mv(tertiary=False):
 
 
 def get_annotations_mturk_mean():
+    """
+    get mean aggregated MTurk annotations as dataframe
+    :return: MTurk annotation dataframe (mean)
+    """
     df = get_mturk_pivot('nlabel_worker')
 
     def get_mean(row):
@@ -67,6 +91,10 @@ def get_annotations_mturk_mean():
 
 
 def get_annotations_staff():
+    """
+    get staff anotation dataframe, filtering only for the cases where both annotators agree
+    :return: staff annotation dataframe
+    """
     df = pd.read_hdf('data/store_public.h5', 'annotations/staff')
 
     df = df[df["label_staff1"] == df["label_staff2"]]
@@ -78,6 +106,12 @@ def get_annotations_staff():
 
 
 def get_annotations(lean=True, tertiary=False):
+    """
+    get all annotations
+    :param lean: lean for less columns
+    :param tertiary: whether to aggregate to tertiary labels (interpreting label "Match" as "Version")
+    :return: dataframe with all annotations mapped to by set_ids and candidate YouTube IDs
+    """
     df = get_annotations_staff().join(
         get_annotations_mturk_mean().join(
             get_annotations_mturk_mv(tertiary=tertiary)).join(
