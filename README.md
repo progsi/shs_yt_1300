@@ -6,6 +6,10 @@ This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover ver
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7671125.svg)](https://doi.org/10.5281/zenodo.7671125)
 
 
+# Analysis Example
+
+Please chech `exploration.ipynb` for some examples on data analysis (annotation quality, dataset insights).
+
 # Ressources that we used
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
 - *Re-MOVE* for cover song identification https://github.com/furkanyesiler/re-move, our fork: https://github.com/progsi/re-move  
@@ -34,6 +38,7 @@ Get the CQT Spectograms for our dataset and the SHS100K videos (2600 videos in t
 
 ### HDF Store structe:
 `audiofeatures/YT_ID/crema`: accesses the dataset CREMA-PCP feature of the respective `YT_ID` for instance `gORyrU1xQpg` for the video: https://www.youtube.com/watch?v=gORyrU1xQpg
+
 
 ## Getting the metadata
 
