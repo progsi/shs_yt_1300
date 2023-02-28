@@ -25,10 +25,11 @@ Get the CREMA-PCP features for the full crawl of 97k videos:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7670983.svg)](https://doi.org/10.5281/zenodo.7670983)
 
-Get the CQT Spectograms for our dataset and the SHS100K videos (2600 videos in total):
+Get the CQT Spectograms for our dataset and the SHS100K videos here:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7674706.svg)](https://doi.org/10.5281/zenodo.7674706)
 
+If you want to get the CQT Spectograms for the full crawl of 97k videos, please contact us!
 
 ### HDF Store structe:
 `audiofeatures/YT_ID/crema`: accesses the dataset CREMA-PCP feature of the respective `YT_ID` for instance `gORyrU1xQpg` for the video: https://www.youtube.com/watch?v=gORyrU1xQpg
