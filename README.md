@@ -3,7 +3,8 @@
 This is the repository for the *SHS-YouTube1300* dataset. A dataset of cover versions from *YouTube*.
 
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7671125.svg)](https://doi.org/10.5281/zenodo.7671125)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7694973.svg)](https://doi.org/10.5281/zenodo.7694973)
+
 
 # Ressources that we used
 - *SHS100K* as seed dataset https://github.com/NovaFrost/SHS100K
@@ -21,15 +22,10 @@ conda env create -f env.yml
 
 ## Getting the audio features (CREMA-PCP and CQT Spectograms)
 
-Get the CREMA-PCP features for the full crawl of 97k videos:
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7670983.svg)](https://doi.org/10.5281/zenodo.7670983)
-
-Get the CQT Spectograms for our dataset and the SHS100K videos here:
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7674706.svg)](https://doi.org/10.5281/zenodo.7674706)
-
-If you want to get the CQT Spectograms for the full crawl of 97k videos, please contact us!
+Check our Zenodo dataset publication to get the following Audio features
+- CREMA-PCP features for our full crawl of 97k videos
+- CQT spectograms for our SHS-YouTube-1300 dataset and the respective versions from the SHS100k dataset
+- to get the CQT spectograms for the full crawl, please contact us! 
 
 ### HDF Store structe:
 `audiofeatures/YT_ID/crema`: accesses the dataset CREMA-PCP feature of the respective `YT_ID` for instance `gORyrU1xQpg` for the video: https://www.youtube.com/watch?v=gORyrU1xQpg
